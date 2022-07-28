@@ -1,3 +1,4 @@
+import { Center } from 'components/Grid/Center/styles'
 import { Column } from 'components/Grid/Column/styles'
 import { Container } from 'components/Grid/Container/styles'
 import { Row } from 'components/Grid/Row/styles'
@@ -10,11 +11,13 @@ const Main = () => (
         <Row>
           <Column grid="6">
             <img src="/img/main-image.png" />
-            <Heading color="white" size="huge">
-              Basketly
-            </Heading>
-            <h6>Encontre jogos perto de você.</h6>
-            <button>Encontre jogos</button>
+            <Center>
+              <Heading color="white" size="huge">
+                Basketly
+              </Heading>
+              <h6>Encontre jogos perto de você.</h6>
+              <button>Encontre jogos</button>
+            </Center>
           </Column>
         </Row>
       </Column>
