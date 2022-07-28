@@ -10,7 +10,7 @@ export type ButtonProps = {
   size?: 'small' | 'medium' | 'large'
   fullWidth?: boolean
   minimal?: boolean
-  icon?: JSX.Element
+  icon?: string
   as?: React.ElementType
 } & ButtonTypes
 
@@ -28,6 +28,8 @@ export const Button: React.ForwardRefRenderFunction<
   },
   ref
 ) => {
+  console.log('button', icon)
+
   return (
     <S.Wrapper
       size={size}
@@ -37,7 +39,7 @@ export const Button: React.ForwardRefRenderFunction<
       ref={ref}
       {...props}
     >
-      {icon}
+      <img src={icon} />
       {!!children && <span>{children}</span>}
     </S.Wrapper>
   )

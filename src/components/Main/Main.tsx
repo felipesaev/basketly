@@ -6,28 +6,35 @@ import { Row } from 'components/Grid/Row/styles'
 import { Heading } from 'components/Heading/Heading'
 import { Spacing } from 'components/Spacing/styles'
 
-const Main = () => (
-  <Container>
-    <Row>
-      <Column grid="12">
-        <Row>
-          <Column grid="6">
-            <img src="/img/main-image.png" />
-            <Center>
-              <Heading color="white" size="huge">
-                Basketly
-              </Heading>
-              <Spacing bottom />
+const Main = () => {
+  const handleClick = () => {
+    console.log('ok')
+  }
+  return (
+    <Container>
+      <Row>
+        <Column grid="12">
+          <Row>
+            <Column grid="6">
+              <img src="/img/main-image.png" />
+              <Center>
+                <Heading color="white" size="huge">
+                  Basketly
+                </Heading>
+                <Spacing bottom />
 
-              <h6>Encontre jogos perto de você.</h6>
-              <Spacing top />
-              <Button size="medium">Encontre jogos</Button>
-            </Center>
-          </Column>
-        </Row>
-      </Column>
-    </Row>
-  </Container>
-)
+                <h6>Encontre jogos perto de você.</h6>
+                <Spacing top />
+                <Button as="a" href="/test" size="medium">
+                  Encontre jogos
+                </Button>
+              </Center>
+            </Column>
+          </Row>
+        </Column>
+      </Row>
+    </Container>
+  )
+}
 
 export default Main
