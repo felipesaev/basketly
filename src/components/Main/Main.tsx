@@ -15,10 +15,15 @@ const Main = () => {
             <Column grid="6">
               <img src="/img/main-image.png" />
               <Center>
-                <h1 className="text-3xl font-bold underline">Hello world!</h1>
+                <h1 className="title-font sm:text-4xl text-5xl mb-4 font-bold text-gray-900">
+                  Basktly
+                </h1>
                 <h6>Encontre jogos perto de você.</h6>
-                <button type="button" className="cursor-pointer">
-                  Submit
+                <button
+                  type="button"
+                  className="bg-primary text-white rounded-sm p-2 mt-4 cursor-pointer"
+                >
+                  Encontre jogos
                 </button>
               </Center>
             </Column>
