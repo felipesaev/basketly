@@ -1,10 +1,7 @@
-import Button from 'components/Button/Button'
 import { Center } from 'components/Grid/Center/styles'
 import { Column } from 'components/Grid/Column/styles'
 import { Container } from 'components/Grid/Container/styles'
 import { Row } from 'components/Grid/Row/styles'
-import { Heading } from 'components/Heading/Heading'
-import { Spacing } from 'components/Spacing/styles'
 
 const Main = () => {
   const handleClick = () => {
@@ -18,16 +15,11 @@ const Main = () => {
             <Column grid="6">
               <img src="/img/main-image.png" />
               <Center>
-                <Heading color="white" size="huge">
-                  Basketly
-                </Heading>
-                <Spacing bottom />
-
+                <h1 className="text-3xl font-bold underline">Hello world!</h1>
                 <h6>Encontre jogos perto de você.</h6>
-                <Spacing top />
-                <Button as="a" href="/test" size="medium">
-                  Encontre jogos
-                </Button>
+                <button type="button" className="cursor-pointer">
+                  Submit
+                </button>
               </Center>
             </Column>
           </Row>
