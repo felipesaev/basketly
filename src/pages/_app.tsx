@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { BrowserRouter } from 'react-router-dom'
 import '../../styles/global.css'
 
 function App({ Component, pageProps }: AppProps) {

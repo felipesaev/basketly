@@ -2,13 +2,9 @@ import { Center } from 'components/Grid/Center/styles'
 import { Column } from 'components/Grid/Column/styles'
 import { Container } from 'components/Grid/Container/styles'
 import { Row } from 'components/Grid/Row/styles'
+import Link from 'next/link'
 
 const Main = () => {
-  const gamesPage = () => {
-    console.log('teste')
-
-    return <a href="/games"></a>
-  }
   return (
     <Container>
       <Row>
@@ -21,14 +17,14 @@ const Main = () => {
                   Basktly
                 </h1>
                 <h6>Encontre jogos perto de você.</h6>
-
-                <button
-                  onClick={gamesPage}
-                  type="button"
-                  className="bg-primary text-white rounded-sm p-2 mt-4 cursor-pointer"
-                >
-                  Encontrar jogos
-                </button>
+                <Link href="/games">
+                  <button
+                    type="button"
+                    className="bg-primary text-white rounded-sm p-2 mt-4 cursor-pointer"
+                  >
+                    Encontrar jogos
+                  </button>
+                </Link>
               </Center>
             </Column>
           </Row>
