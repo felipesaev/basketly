@@ -23,7 +23,7 @@ const Main = () => {
                   type="button"
                   className="bg-primary text-white rounded-sm p-2 mt-4 cursor-pointer"
                 >
-                  Encontre jogos
+                  Encontrar jogos
                 </button>
               </Center>
             </Column>
