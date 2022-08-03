@@ -4,8 +4,10 @@ import { Container } from 'components/Grid/Container/styles'
 import { Row } from 'components/Grid/Row/styles'
 
 const Main = () => {
-  const handleClick = () => {
-    console.log('ok')
+  const gamesPage = () => {
+    console.log('teste')
+
+    return <a href="/games"></a>
   }
   return (
     <Container>
@@ -19,7 +21,9 @@ const Main = () => {
                   Basktly
                 </h1>
                 <h6>Encontre jogos perto de você.</h6>
+
                 <button
+                  onClick={gamesPage}
                   type="button"
                   className="bg-primary text-white rounded-sm p-2 mt-4 cursor-pointer"
                 >
