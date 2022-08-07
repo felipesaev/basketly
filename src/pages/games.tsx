@@ -1,21 +1,15 @@
-import dynamic from 'next/dynamic'
-const Map = dynamic(() => import('components/Map'), { ssr: false })
-export default function map() {
-  return (
-    <>
-      <Map
-        places={[
-          {
-            id: '2',
-            name: 'São José dos Campos',
-            slug: 'sao jose dos campos',
-            location: {
-              latitude: -23.231357952559005,
-              longitude: -45.894283542523155
-            }
-          }
-        ]}
-      />
-    </>
-  )
+import { MapProps } from 'components/Map'
+import client from 'graphql/client'
+import { GET_PAGES } from 'graphql/queries'
+import MapTemplatePage from 'templates/Games'
+
+export default function MapPage({ games }: MapProps) {
+  return <MapTemplatePage games={games} />
+}
+
+export const getStaticProps = async () => {
+  const { games } = await client.request(GET_PAGES)
+  return {
+    props: { games }
+  }
 }

@@ -11,6 +11,8 @@
     "test:watch": "npm test --watch"
   },
   "dependencies": {
+    "graphql": "^16.5.0",
+    "graphql-request": "^4.3.0",
     "leaflet": "^1.8.0",
     "next": "12.2.3",
     "next-pwa": "^5.5.5",
