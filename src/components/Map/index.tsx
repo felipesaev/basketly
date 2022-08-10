@@ -1,5 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Link from 'next/link'
+import { Dropdown } from 'flowbite-react'
 
 type Game = {
   id: string
@@ -24,16 +25,67 @@ export type MapProps = {
 
 export const Map = ({ games }: MapProps) => (
   <>
-    <div style={{ width: '100%', height: '50vh' }}>
+    <div style={{ width: '100%', height: '35vh' }}>
       <Link href="/">
         <button>Back</button>
       </Link>
       <br />
-      <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-      </select>
+      <br />
+      <div className="flex justify-start">
+        <div className="mb-3 xl:w-96">
+          <label>Escolha a cidade</label>
+          <select
+            className="form-select appearance-none
+      block
+      w-full
+      px-3
+      py-1.5
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      m-0
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            aria-label="Default select example"
+          >
+            <option selected>São José dos Campos</option>
+            <option value="1">Jacarei</option>
+            <option value="2">Taubate</option>
+            <option value="3">São Sebastião</option>
+          </select>
+
+          <br />
+
+          <label>Escolha ao bairro</label>
+          <select
+            className="form-select appearance-none
+      block
+      w-full
+      px-3
+      py-1.5
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      m-0
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            aria-label="Default select example"
+          >
+            <option selected>São José dos Campos</option>
+            <option value="1">Jacarei</option>
+            <option value="2">Taubate</option>
+            <option value="3">São Sebastião</option>
+          </select>
+        </div>
+      </div>
     </div>
     <MapContainer
       center={[-23.230482, -45.8938317]}

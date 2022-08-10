@@ -10,6 +10,7 @@ function App({ Component, pageProps }: AppProps) {
         <title>Basketly</title>
         <link rel="shortcut icon" href="/img/icon-512.png" />
         <link rel="apple-touch-icon" href="/img/icon-512.png" />
+        <script src="../path/to/flowbite/dist/flowbite.js"></script>
         <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"

@@ -7,4 +7,11 @@
   html {
       font-family: Poppins;
   }
+
+  .form-select {
+    -moz-padding-start: calc(.75rem - 3px);
+    background-image: url('/img/chevron-down.png');
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+  }
 }
