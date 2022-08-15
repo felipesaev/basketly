@@ -133,10 +133,7 @@ export const Map = ({ games }: MapProps) => {
                 }}
               >
                 {open && (
-                  <ModalDetail
-                    onBlur={close}
-                    style={{ display: open ? 'none' : 'block' }}
-                  />
+                  <ModalDetail title={title} address={address}></ModalDetail>
                 )}
               </Marker>
             )
