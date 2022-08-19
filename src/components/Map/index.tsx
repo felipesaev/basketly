@@ -2,8 +2,17 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Link from 'next/link'
 import { Dropdown } from 'flowbite-react'
 import { Container } from '../Grid/Container/styles'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { ModalDetail } from 'components/ModalDatail'
+
+import {
+  BottomSheet,
+  BottomSheetRef,
+  SheetContent,
+  MetaTags,
+  Expandable
+} from 'react-spring-bottom-sheet'
+import 'react-spring-bottom-sheet/dist/style.css'
 
 type Game = {
   id: string
@@ -34,11 +43,23 @@ function transitionPage() {
 
 export const Map = ({ games }: MapProps) => {
   const [open, setOpen] = useState(false)
+  const [expandOnContentDrag, setExpandOnContentDrag] = useState(true)
+  const focusRef = useRef<HTMLButtonElement>()
+  const sheetRef = useRef<BottomSheetRef>()
+
+  useEffect(() => {
+    setOpen(true)
+  }, [])
 
   function close() {
     setOpen(false)
   }
-  function showModal(e) {
+
+  function onDismiss() {
+    setOpen(false)
+  }
+
+  function showModal() {
     setOpen(!open)
   }
   return (
@@ -128,12 +149,27 @@ export const Map = ({ games }: MapProps) => {
                 title={title}
                 eventHandlers={{
                   click: (e) => {
-                    showModal(e)
+                    showModal()
                   }
                 }}
               >
                 {open && (
-                  <ModalDetail title={title} address={address}></ModalDetail>
+                  <>
+                    <BottomSheet
+                      open={open}
+                      header={<div className="sheetHeader">{title}</div>}
+                      onDismiss={() => setOpen(false)}
+                      snapPoints={({ minHeight }) => minHeight}
+                      sibling={<div className="sheetFooter">{title}</div>}
+                    >
+                      <div className="sheetBody">{time}</div>
+                      <div className="sheetBody">{address}</div>
+                      <div className="sheetBody">{genre}</div>
+                      <div className="sheetBody">{coverage}</div>
+                      <div className="sheetBody">{net}</div>
+                      <div className="sheetBody">{floor}</div>
+                    </BottomSheet>
+                  </>
                 )}
               </Marker>
             )
