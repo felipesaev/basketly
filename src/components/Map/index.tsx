@@ -13,6 +13,7 @@ import {
   Expandable
 } from 'react-spring-bottom-sheet'
 import 'react-spring-bottom-sheet/dist/style.css'
+import { Select } from 'components/Select'
 
 type Game = {
   id: string
@@ -47,18 +48,6 @@ export const Map = ({ games }: MapProps) => {
   const focusRef = useRef<HTMLButtonElement>()
   const sheetRef = useRef<BottomSheetRef>()
 
-  useEffect(() => {
-    setOpen(true)
-  }, [])
-
-  function close() {
-    setOpen(false)
-  }
-
-  function onDismiss() {
-    setOpen(false)
-  }
-
   function showModal() {
     setOpen(!open)
   }
@@ -73,57 +62,15 @@ export const Map = ({ games }: MapProps) => {
           <br />
           <div className="flex justify-start">
             <div className="mb-3 xl:w-96">
-              <label>Escolha a cidade</label>
-              <select
-                className="form-select appearance-none
-      block
-      w-full
-      px-3
-      py-1.5
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-gray-300
-      rounded
-      transition
-      ease-in-out
-      m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                aria-label="Default select example"
-              >
-                <option selected>São José dos Campos</option>
-                <option value="1">Jacarei</option>
-                <option value="2">Taubate</option>
-                <option value="3">São Sebastião</option>
-              </select>
+              <Select
+                label="Escolha a cidade"
+                values={['São jose', 'Jacarei', 'Ilha']}
+              />
 
-              <br />
-
-              <label>Escolha ao bairro</label>
-              <select
-                className="form-select appearance-none
-      block
-      w-full
-      px-3
-      py-1.5
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-gray-300
-      rounded
-      transition
-      ease-in-out
-      m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                aria-label="Default select example"
-              >
-                <option selected>São José dos Campos</option>
-                <option value="1">Jacarei</option>
-                <option value="2">Taubate</option>
-                <option value="3">São Sebastião</option>
-              </select>
+              <Select
+                label="Escolha o Bairro"
+                values={['São jose', 'Jacarei', 'Ilha']}
+              />
             </div>
           </div>
         </div>
