@@ -1,17 +1,9 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Link from 'next/link'
-import { Dropdown } from 'flowbite-react'
 import { Container } from '../Grid/Container/styles'
-import { useState, useRef, useEffect } from 'react'
-import { ModalDetail } from 'components/ModalDatail'
+import { useState, useRef } from 'react'
 
-import {
-  BottomSheet,
-  BottomSheetRef,
-  SheetContent,
-  MetaTags,
-  Expandable
-} from 'react-spring-bottom-sheet'
+import { BottomSheet } from 'react-spring-bottom-sheet'
 import 'react-spring-bottom-sheet/dist/style.css'
 import { Select } from 'components/Select'
 
@@ -36,19 +28,13 @@ export type MapProps = {
   games?: Game[]
 }
 
-function transitionPage() {
-  console.log('teste')
-
-  return <Link href="/game">dsa</Link>
-}
-
 export const Map = ({ games }: MapProps) => {
   const [open, setOpen] = useState(false)
-  const [expandOnContentDrag, setExpandOnContentDrag] = useState(true)
-  const focusRef = useRef<HTMLButtonElement>()
-  const sheetRef = useRef<BottomSheetRef>()
+  const [value, setValue] = useState(null)
+  function showModal(e) {
+    setValue(e.target.options.title)
 
-  function showModal() {
+    //setValue(e.)
     setOpen(!open)
   }
   return (
@@ -88,37 +74,36 @@ export const Map = ({ games }: MapProps) => {
           ({ id, title, addressLarge, situation, time, address, genre }) => {
             const { latitude, longitude } = addressLarge
             const { coverage, net, floor } = situation
+            console.log(title)
 
             return (
-              <Marker
-                key={`place-${id}`}
-                position={[latitude, longitude]}
-                title={title}
-                eventHandlers={{
-                  click: (e) => {
-                    showModal()
-                  }
-                }}
-              >
-                {open && (
-                  <>
-                    <BottomSheet
-                      open={open}
-                      header={<div className="sheetHeader">{title}</div>}
-                      onDismiss={() => setOpen(false)}
-                      snapPoints={({ minHeight }) => minHeight}
-                      sibling={<div className="sheetFooter">{title}</div>}
-                    >
-                      <div className="sheetBody">{time}</div>
-                      <div className="sheetBody">{address}</div>
-                      <div className="sheetBody">{genre}</div>
-                      <div className="sheetBody">{coverage}</div>
-                      <div className="sheetBody">{net}</div>
-                      <div className="sheetBody">{floor}</div>
-                    </BottomSheet>
-                  </>
-                )}
-              </Marker>
+              <>
+                <Marker
+                  key={`place-${title}`}
+                  position={[latitude, longitude]}
+                  title={title}
+                  eventHandlers={{
+                    click: (e) => {
+                      showModal(e)
+                    }
+                  }}
+                >
+                  {open && (
+                    <>
+                      <BottomSheet
+                        open={open}
+                        header={<div className="sheetHeader">{value}</div>}
+                        onDismiss={() => setOpen(false)}
+                        snapPoints={({ minHeight }) => minHeight}
+                        sibling={<div className="sheetFooter">{title}</div>}
+                      >
+                        tews
+                      </BottomSheet>
+                    </>
+                  )}
+                </Marker>
+                {title}
+              </>
             )
           }
         )}
